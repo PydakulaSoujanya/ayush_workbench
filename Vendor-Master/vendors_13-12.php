@@ -17,8 +17,52 @@ if (!isset($_SESSION['user_id'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="../assets/css/style.css">
   <title>Vendor Table</title>
- <link rel="stylesheet" href="../assets/css/style.css">
+  <!-- <style>
+    .dataTable_wrapper {
+      padding: 20px;
+    }
+
+    .dataTable_search input {
+      max-width: 200px;
+    }
+
+    .dataTable_headerRow th,
+    .dataTable_row td {
+      border: 1px solid #dee2e6;
+    }
+
+    .dataTable_headerRow {
+      background-color: #f8f9fa;
+      font-weight: bold;
+    }
+
+    .dataTable_row:hover {
+      background-color: #f1f1f1;
+    }
+
+    .dataTable_card {
+      border: 1px solid #ced4da;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .dataTable_card .card-header {
+      background-color: #A26D2B;
+      color: white;
+      font-weight: bold;
+    }
+
+    .action-icons i {
+      margin: 0 5px;
+      cursor: pointer;
+    }
+
+    .action-icons i:hover {
+      color: #007bff;
+    }
+  </style> -->
 </head>
 <body>
 <?php include('../navbar.php'); ?>
@@ -39,13 +83,12 @@ if (!isset($_SESSION['user_id'])) {
                 <th>Vendor Name</th>
                 <th>Phone Number</th>
                 <th>Email</th>
-                <th>vendor Type</th>
+                <th>Address</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody id="tableBody">
               <!-- Rows will be dynamically generated -->
-              
             </tbody>
           </table>
         </div>
@@ -109,7 +152,7 @@ if (!isset($_SESSION['user_id'])) {
                 <td>${row.vendor_name}</td>
                 <td>${row.phone_number}</td>
                 <td>${row.email}</td>
-                <td>${row.vendor_type}</td>
+                <td>${row.address}</td>
                 <td class="action-icons">
                   <i class="fas fa-eye" onclick="viewVendor(${row.id})" title="View"></i>
                   <i class="fas fa-edit" onclick="editVendor(${row.id})" title="Edit"></i>
